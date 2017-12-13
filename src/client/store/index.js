@@ -9,13 +9,13 @@ class TodoStore {
 	@observable texts = []
 	//画板相关参数交给mobx处理，接受全局管理
 	@observable block_props = {
-		x: 0.505,
-		y: 0.65,
+		x: 0.5,
+		y: 0.5,
 		width: 0.38,
 		height: 0.53,
 		color: "white",
 		border: {
-			color:"green"
+			color:"gray"
 		}
 	}
 	@action allHold = (left, right) => {

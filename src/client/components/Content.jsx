@@ -5,14 +5,8 @@ import { inject, observer } from "mobx-react"
 
 //local
 import Canvas from './Canvas.jsx'
-
-import {
-    canvas_layer
-} from '../feature/Canvas_layer.js'
-
-import {
-    canvas_background
-} from '../feature/Canvas_background.js'
+import { canvas_layer } from '../feature/Canvas_layer.js'
+import { canvas_background } from '../feature/Canvas_background.js'
 
 //app
 const { Content } = Layout
@@ -81,10 +75,7 @@ export default class content extends Component {
             allHold("is_edit",true)
             canvas_layer(
                 this.refs._canvas.wrappedInstance.refs.canvas_layer,
-                this.props.store.images,
-                true,
-                true,
-                this.props.store.block_props
+                this.props.store
             )
             this.setState({
                 show_material:false
@@ -112,10 +103,7 @@ export default class content extends Component {
             allHold("is_edit",true)
             canvas_layer(
                 this.refs._canvas.wrappedInstance.refs.canvas_layer,
-                this.props.store.images,
-                true,
-                true,
-                this.props.store.block_props
+                this.props.store.images
             )
         }
     }
@@ -187,11 +175,7 @@ export default class content extends Component {
             img_list
         }= this.state
         return (
-            <Content 
-                className="content" 
-                onClick={this.handleClick} 
-                // style={{fontSize: screen.width > 400 ? "12px" : `${screen.width/33.333}px`}}
-                >
+            <Content className="content" onClick={this.handleClick}>
                 <div className="content-navigation">
                     <a href="#">首页</a>
                     <a href="#">定制馆</a>
@@ -201,8 +185,7 @@ export default class content extends Component {
                     <a href="#">合作代理</a>
                 </div>
                 <div className="content-container">
-                    <div
-                        className={`${show_material ? "active":""} content-container-material`}>
+                    <div className={`${show_material ? "active":""} content-container-material`}>
                         <Tabs type="card">
                             <TabPane tab="定制素材" key="1">
                                 <div className="select">
